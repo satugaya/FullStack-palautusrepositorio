@@ -1,26 +1,9 @@
 import React, {useState} from 'react'
 import Header from './Header'
 import Content from './Content'
-
-const Statistics = (props) => {
-  console.log(props)
-  const {good, bad, neutral} = props
-  return(
-    <div>
-    <p>
-    Good: {good}</p>
-    <p>Neutral: {neutral}</p>
-     
-    Bad: {bad} <br/>
-    All: {good + neutral + bad} <br/>
-    Average: {(good - bad)/(good + neutral + bad)}
-    <br/>
-    Positive: {100*good/(good + neutral + bad)} %
-    
-  </div>
-  )
+import Statistics from './Statistics'
   
-}
+
   
   
 
@@ -34,6 +17,7 @@ const App = () => {
   const [good, setGood] = useState(0)
   const [neutral, setNeutral] = useState(0)
   const [bad, setBad] = useState(0)
+  const sum = good + bad + neutral
 
   const handleGoodClick = () => {
     console.log('good')
@@ -61,7 +45,7 @@ const App = () => {
       <br />
       <Header course ={statistics} />
       
-      <Statistics good={good} neutral={neutral} bad={bad}/>
+      <Statistics good={good} neutral={neutral} bad={bad} sum={sum}/>
     </div>
   )
 }
