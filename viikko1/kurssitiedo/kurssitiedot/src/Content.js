@@ -2,19 +2,25 @@ import React from 'react'
 import Part from './Part'
 import Total from './Total'
 
-const Content = (props) => {
-    const exercises1 = 10
-  
-  const exercises2 = 7
-  
-  const exercises3 = 14
-
+const Content = () => {
+    const part1 = {
+        name: 'Fundamentals of React',
+        exercises: 10
+      }
+      const part2 = {
+        name: 'Using props to pass data',
+        exercises: 7
+      }
+      const part3 = {
+        name: 'State of a component',
+        exercises: 14
+      }
   return (
     <div>
-        <Part part='Fundamentals of React ' exercise={exercises1}/>
-        <Part part='Using props to pass data ' exercise={exercises2}/>
-        <Part part='State of a component ' exercise={exercises3}/>
-        <Total sum={exercises1 + exercises2 + exercises3} />
+        <Part part={part1.name} exercise={part1.exercises}/>
+        <Part part={part2.name} exercise={part2.exercises}/>
+        <Part part={part3.name} exercise={part3.exercises}/>
+        <Total sum={part1.exercises + part2.exercises +  part3.exercises} />
      </div>
   )
 }
