@@ -2,6 +2,28 @@ import React, {useState} from 'react'
 import Header from './Header'
 import Content from './Content'
 
+const Statistics = (props) => {
+  console.log(props)
+  const {good, bad, neutral} = props
+  return(
+    <div>
+    <p>
+    Good: {good}</p>
+    <p>Neutral: {neutral}</p>
+     
+    Bad: {bad} <br/>
+    All: {good + neutral + bad} <br/>
+    Average: {(good - bad)/(good + neutral + bad)}
+    <br/>
+    Positive: {100*good/(good + neutral + bad)} %
+    
+  </div>
+  )
+  
+}
+  
+  
+
 
 const App = () => {
   const course = 'Half Stack application development'
@@ -39,14 +61,7 @@ const App = () => {
       <br />
       <Header course ={statistics} />
       
-      Good: {good}
-      <br />
-      Neutral: {neutral} <br/>
-      Bad: {bad} <br/>
-      All: {good + neutral + bad} <br/>
-      Average: {(good - bad)/(good + neutral + bad)}
-      <br/>
-      Positive: {100*good/(good + neutral + bad)} %
+      <Statistics good={good} neutral={neutral} bad={bad}/>
     </div>
   )
 }
