@@ -1,4 +1,5 @@
 import React from 'react'
+import StatisticLine from './StatisticLine'
 
 
 const Statistics = (props) => {
@@ -6,7 +7,7 @@ const Statistics = (props) => {
   const {good, bad, neutral, sum} = props
   
   console.log(sum)
-  if (sum == 0) {
+  if (sum === 0) {
     return (
       <div>
         No feedback yet
@@ -16,15 +17,13 @@ const Statistics = (props) => {
   
 return(
       <div>
-      <p>
-      Good: {good}</p>
-      <p>Neutral: {neutral}</p>
+        <StatisticLine text="Good" value={good} />
+        <StatisticLine text="Neutral" value={neutral} />
+        <StatisticLine text="Bad" value={bad} />
+        <StatisticLine text="All" value={sum} />
+        <StatisticLine text="Average" value={(good - bad)/sum} />
+        <StatisticLine text="Positive" value={100*(good/sum)} text2=" %"  />
        
-      Bad: {bad} <br/>
-      All: {good + neutral + bad} <br/>
-      Average: {(good - bad)/(good + neutral + bad)}
-      <br/>
-      Positive: {100*good/(good + neutral + bad)} %
       
     </div>
     )
