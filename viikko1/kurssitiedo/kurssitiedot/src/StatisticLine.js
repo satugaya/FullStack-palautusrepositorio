@@ -6,9 +6,19 @@ const StatisticLine = (props) => {
   console.log(props, "StatisticLine")
   
 return(
-      <div>
-      {props.text}: {props.value} {props.text2}
-    </div>
+      <tbody>
+          <tr>
+            <td>{props.text}:</td>
+            <td>{props.value}{props.text2}</td>
+
+          </tr>
+      </tbody>
+          
+              
+            
+          
+      
+    
     )
     
 }
