@@ -7,9 +7,6 @@ import Content from './Content'
 
 const App = () => {
   const course = 'Half Stack application development'
-
-  const unicafe = 'Give Feedback'
-  
   
   return (
     <div>
