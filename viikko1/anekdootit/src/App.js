@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import Header from './Header'
-import Content from './Content'
-import Statistics from './Statistics'
+
   
 
   
@@ -12,30 +11,9 @@ const copy = [...points]
 
 
 const App = () => {
-  const course = 'Half Stack application development'
-
-  const unicafe = 'Give Feedback'
-  const statistics = 'Statistics'
-  const quotes = 'Quotes'
-  // tallenna napit omaan tilaansa
-  const [good, setGood] = useState(0)
-  const [neutral, setNeutral] = useState(0)
-  const [bad, setBad] = useState(0)
   
-  const sum = good + bad + neutral
-
-  const handleGoodClick = () => {
-    console.log('good')
-    setGood(good + 1)
-  }
-  const handleNeutralClick = () => {
-    console.log('neutral')
-    setNeutral(neutral + 1)
-  }
-  const handleBadClick = () => {
-    console.log('bad')
-    setBad(bad + 1)
-  }
+  const quotes = 'Quotes'
+  
   const anecdotes = [
     'If it hurts, do it more often',
     'Adding manpower to a late software project makes it later!',
@@ -68,24 +46,12 @@ const App = () => {
     setVote(copy[selected] += 1)
     
   }
-  
-  //maxin pitäisi muuttua, kun äänestetään, pitääkö tästäkin tehdä state?
+ 
   
 
   return (
     <div>
-      <Header course ={course} />
-      <Content  />
-      <Header course = {unicafe} />
-      <button onClick={handleGoodClick}>Good</button>
-      <button onClick={handleNeutralClick}>Neutral</button>
-      <button onClick={handleBadClick}>Bad</button>
-      <br />
-      <br />
-      <Header course ={statistics} />
       
-      <Statistics good={good} neutral={neutral} bad={bad} sum={sum}/>
-      <br/>
       <Header course={quotes} />
       {anecdotes[selected]}
       <br/>
