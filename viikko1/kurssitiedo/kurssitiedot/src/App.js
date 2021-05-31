@@ -9,6 +9,8 @@ import Statistics from './Statistics'
 let points = new Array(6+1).join('0').split('').map(parseFloat)
 const copy = [...points] 
 
+
+
 const App = () => {
   const course = 'Half Stack application development'
 
@@ -52,10 +54,22 @@ const App = () => {
     setSelected(Math.floor(Math.random()*anecdotes.length))
   }
 
+  
+  const best = 'Anecdote with most votes'
+  
+  let max = Math.max(...copy);
+  
+  
+  console.log(max, "max")
+  
+  const maxVoted = copy.findIndex((x) => x == max)
+  
   const addVote = () => {
     setVote(copy[selected] += 1)
     
   }
+  
+  //maxin pitäisi muuttua, kun äänestetään, pitääkö tästäkin tehdä state?
   
 
   return (
@@ -76,13 +90,17 @@ const App = () => {
       {anecdotes[selected]}
       <br/>
       
-      {copy[selected]} copy
+      has {copy[selected]} votes 
       
       <button onClick={addVote}>Äänestä tästä</button>
       
-      <button onClick={randomQuote}>Paina tästä uusi ajatus</button>
-      
+      <button onClick={randomQuote}>Paina tästä uusi ajatus</button>     
       <br />
+      <br/>
+      <Header course={best} />
+      {max > 1 ? <p>has {max} votes<br/>{anecdotes[maxVoted]}</p> : <p>Ei vielä tuloksia.</p>}
+      
+
       
       
     </div>
